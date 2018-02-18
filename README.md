@@ -40,7 +40,7 @@ Even the analysis fails, that will not mark the build as failed. You can use the
 ## Running all the tests and create a JUnit compatible report
 I've created a tool [rvelaz/mythril-junit-report](https://github.com/rvelaz/mythril-junit-report) that takes the JSON output produced by Mythril and transforms it to JUnit compatible XML that can be interpreted by CircleCI. Here's an example of the output produced by CircleCI:
 
-![Failed Mythril analysis](https://github.com/rvelaz/mythril-analysis-test/static/screenshot.png)
+![Failed Mythril analysis](https://github.com/rvelaz/mythril-analysis-test/blob/master/static/screenshot.png)
 
 The steps are:
 * Pull the code
