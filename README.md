@@ -45,7 +45,7 @@ I've created a tool [rvelaz/mythril-junit-report](https://github.com/rvelaz/myth
 The steps are:
 * Pull the code
 * Run Mythril analysis and produce a report file
-* Install go,  mythril-junit-report and create the JUnit compatible report
+* Install go,  [mythril-junit-report](https://github.com/rvelaz/mythril-junit-report) and create the JUnit compatible report
 
 ```yaml
 version: 2
