@@ -1,0 +1,30 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: rvelaz/mythril-ci:0.2.0
+    steps:
+      - checkout
+      - run:
+          name: Execute analysis
+          command: |
+            bash ./ci-script/execute_tests.sh -o '-x -o json' -s src -r results.json
+      - run:
+          name: Install go
+          when: always
+          command: |
+            apt-get install -y golang-1.9-go
+      - run:
+          name: Export to junit
+          when: always
+          command: |
+            export GOROOT=/usr/lib/go-1.9 && \
+            export PATH=$GOROOT/bin:$PATH && \
+            echo $PATH && \
+            go get -u github.com/rvelaz/mythril-junit-report
+            export PATH=/root/go/bin:$PATH
+            mkdir ~/mythril-results
+            cat results.json | mythril-junit-report > ~/mythril-results/report.xml
+
+      - store_test_results:
+          path: ~/mythril-results

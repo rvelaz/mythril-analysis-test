@@ -54,9 +54,6 @@ ko=0
 
 for f in $SOLIDITY_FILES
 do
-  # if [[ -n $RESULT_FILE ]]; then
-  #   echo "=== RUN $(basename $f)" >> $RESULT_FILE
-  # fi
   test_result=$(myth $MYTHRIL_OPTIONS $f)
   if [[ "$test_result" == "[]" || "$test_result" == "The analysis was completed successfully. No issues were detected." ]]; then
     ok=$((ok+1))
@@ -68,11 +65,6 @@ do
     echo $test_result >> $RESULT_FILE
   fi
 done
-
-# if [[ -n $RESULT_FILE ]]; then
-#   echo "----------------------" >> $RESULT_FILE
-#   echo "Passed: $ok. Failed: $ko" >> $RESULT_FILE
-# fi
 
 if [ $ko -ne 0 ];then
   exit 1
