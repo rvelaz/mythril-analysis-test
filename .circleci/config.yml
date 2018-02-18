@@ -18,9 +18,9 @@ jobs:
           name: Export to junit
           when: always
           command: |
-            export GOROOT=/usr/lib/go-1.9 && \
-            export PATH=$GOROOT/bin:$PATH && \
-            echo $PATH && \
+            export GOROOT=/usr/lib/go-1.9
+            export PATH=$GOROOT/bin:$PATH
+            echo $PATH
             go get -u github.com/rvelaz/mythril-junit-report
             export PATH=/root/go/bin:$PATH
             mkdir ~/mythril-results

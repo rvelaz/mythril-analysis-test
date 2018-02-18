@@ -34,6 +34,7 @@ while getopts ":o:s:f:r:h" opt; do
       ;;
     h)
       usage
+      exit 0
       ;;
     \?)
       echo "Invalid option: -$OPTARG" >&2
